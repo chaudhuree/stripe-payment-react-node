@@ -8,14 +8,7 @@ const stripe = Stripe(process.env.STRIPE_KEY);
 const router = express.Router();
 
 router.post("/create-checkout-session", async (req, res) => {
-  // console.log("req.body: ", req.body);
 
-  // const customer = await stripe.customers.create({
-  //   metadata: {
-  //     userId: req.body.userId,
-  //     cart: JSON.stringify(req.body.cartItems),
-  //   },
-  // });
 
   const line_items = req.body.cartItems.map((item) => {
     return {
